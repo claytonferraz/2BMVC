@@ -138,7 +138,7 @@ public class CadPessoa extends javax.swing.JFrame {
         Pessoa pe = new Pessoa();
         
         pe.setNome(nome.getText());
-        pe.setSobrenome(sobrenome.getText());
+        //pe.setSobrenome(sobrenome.getText());
         pe.setCpf(cpf.getText());
         // aqui chamo a classe para cadastrar no banco de dados
         Sistema si = new Sistema();
