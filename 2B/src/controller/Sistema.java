@@ -7,6 +7,7 @@ package controller;
 
 import controller.exceptions.IllegalOrphanException;
 import controller.exceptions.NonexistentEntityException;
+import model.Categoria;
 import model.Endereco;
 import model.Pessoa;
 import model.Tarefa;
@@ -30,6 +31,10 @@ public class Sistema {
     public void CadTarefa(Tarefa ta) {
         TarefaJpaController tarefa = new TarefaJpaController();
         tarefa.create(ta);
+    }
+    public void CadCategoria(Categoria  cat) {
+        CategoriaJpaController categoria = new CategoriaJpaController();
+        categoria.create(cat);
     }
     
     public Endereco ConEndereco(Integer id) {

@@ -34,6 +34,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Pessoa.findByNome", query = "SELECT p FROM Pessoa p WHERE p.nome = :nome"),
     @NamedQuery(name = "Pessoa.findByCpf", query = "SELECT p FROM Pessoa p WHERE p.cpf = :cpf")})
 public class Pessoa implements Serializable {
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idpessoafk")
+    private Collection<Venda> vendaCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -129,6 +131,15 @@ public class Pessoa implements Serializable {
     @Override
     public String toString() {
         return "model.Pessoa[ idpessoa=" + idpessoa + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Venda> getVendaCollection() {
+        return vendaCollection;
+    }
+
+    public void setVendaCollection(Collection<Venda> vendaCollection) {
+        this.vendaCollection = vendaCollection;
     }
     
 }
